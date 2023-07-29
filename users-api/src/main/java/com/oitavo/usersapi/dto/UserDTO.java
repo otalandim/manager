@@ -1,9 +1,11 @@
 package com.oitavo.usersapi.dto;
 
+import com.oitavo.usersapi.entity.User;
+
 import java.util.Date;
 
 public class UserDTO {
-    private String nome;
+    private String name;
     private String cpf;
     private String address;
     private String email;
@@ -12,8 +14,8 @@ public class UserDTO {
 
     public UserDTO () {}
 
-    public UserDTO (String nome, String cpf, String address, String email, String telephone, Date dateRegister) {
-        this.nome = nome;
+    public UserDTO (String name, String cpf, String address, String email, String telephone, Date dateRegister) {
+        this.name = name;
         this.cpf = cpf;
         this.address = address;
         this.email = email;
@@ -21,12 +23,12 @@ public class UserDTO {
         this.dateRegister = dateRegister;
     }
 
-    public String getNome () {
-        return nome;
+    public String getName () {
+        return name;
     }
 
-    public void setNome (String nome) {
-        this.nome = nome;
+    public void setName (String name) {
+        this.name = name;
     }
 
     public String getCpf () {
@@ -82,5 +84,16 @@ public class UserDTO {
     @Override
     public int hashCode () {
         return cpf.hashCode();
+    }
+
+    public static UserDTO convert(User user) {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setName(user.getName());
+        userDTO.setAddress(user.getAddress());
+        userDTO.setCpf(user.getCpf());
+        userDTO.setEmail(user.getEmail());
+        userDTO.setTelephone(user.getTelephone());
+        userDTO.setDateRegister(user.getDateRegister());
+        return userDTO;
     }
 }
