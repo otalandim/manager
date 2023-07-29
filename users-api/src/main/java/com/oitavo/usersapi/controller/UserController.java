@@ -1,9 +1,7 @@
 package com.oitavo.usersapi.controller;
 
 import com.oitavo.usersapi.dto.UserDTO;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
@@ -63,5 +61,23 @@ public class UserController {
             }
         }
         return null;
+    }
+
+    @PostMapping("/newUser")
+    public UserDTO add(@RequestBody UserDTO userDTO) {
+        userDTO.setDateRegister(new Date());
+        users.add(userDTO);
+        return userDTO;
+    }
+
+    @DeleteMapping("/user/{cpf}")
+    public boolean remove(@PathVariable String cpf) {
+        for (UserDTO user: users){
+            if (user.getCpf().equals(cpf)){
+                users.remove(user);
+                return true;
+            }
+        }
+        return false;
     }
 }
