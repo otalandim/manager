@@ -15,7 +15,7 @@ public class UserController {
     @PostConstruct
     public void initiateList(){
         UserDTO userDTO = new UserDTO();
-        userDTO.setNome("Otavio");
+        userDTO.setName("Otavio");
         userDTO.setCpf("123");
         userDTO.setAddress("Rua A");
         userDTO.setEmail("teste_otavio@bla.com");
@@ -23,7 +23,7 @@ public class UserController {
         userDTO.setDateRegister(new Date());
 
         UserDTO userDTO2 = new UserDTO();
-        userDTO2.setNome("Erika");
+        userDTO2.setName("Erika");
         userDTO2.setCpf("456");
         userDTO2.setAddress("Rua B");
         userDTO2.setEmail("erika@bla.com");
@@ -31,7 +31,7 @@ public class UserController {
         userDTO2.setDateRegister(new Date());
 
         UserDTO userDTO3 = new UserDTO();
-        userDTO3.setNome("Isaac");
+        userDTO3.setName("Isaac");
         userDTO3.setCpf("789");
         userDTO3.setAddress("Rua C");
         userDTO3.setEmail("isaac@bla.com");
