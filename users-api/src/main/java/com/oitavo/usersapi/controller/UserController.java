@@ -2,6 +2,7 @@ package com.oitavo.usersapi.controller;
 
 import com.oitavo.usersapi.dto.UserDTO;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.PostConstruct;
@@ -52,5 +53,15 @@ public class UserController {
     @GetMapping("/users")
     public List<UserDTO> getUsers() {
         return users;
+    }
+
+    @GetMapping("/users/{cpf}")
+    public UserDTO getUserByCpf(@PathVariable String cpf) {
+        for (UserDTO user: users){
+            if (user.getCpf().equals(cpf)){
+                return user;
+            }
+        }
+        return null;
     }
 }
