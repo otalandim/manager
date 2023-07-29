@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-//import static com.oitavo.usersapi.dto.UserDTO.users;
-
 @RestController
 public class UserController {
     public static List<UserDTO> users = new ArrayList<UserDTO>();
