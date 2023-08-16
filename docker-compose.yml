@@ -1,0 +1,24 @@
+version: '3.7'
+
+services: 
+  postgres-docker:
+    image: postgres:${POSTGRES_VERSION}
+    container_name: ${POSTGRES_CONTAINER_NAME}
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes: 
+      - ${dir}:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+  pgadmin4-docker:
+    image: dpage/pgadmin4
+    container_name: ${PGADMIN_CONTAINER_NAME}
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports: 
+      - 15432:80
+    depends_on:
+      - postgres-docker
